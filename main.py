@@ -3,15 +3,6 @@ import argparse
 from xmlConterter import Converter
 from os import path, listdir
 
-
-def build_json_name(file_name):
-  '''
-  Принимает название файла
-  :param file_name:
-  :return:
-  '''
-
-
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                    description="Анализ xsd файла с закупок")

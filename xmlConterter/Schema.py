@@ -1,13 +1,13 @@
 from lxml import etree
-from copy import copy
-import StringIO
+from io import StringIO
 
 SCHEMA_SPACE = "{http://www.w3.org/2001/XMLSchema}"
 
 
+
 class Schema:
   def __init__(self, schemafile):
-    self.root = etree.parse(StringIO.StringIO(schemafile))
+    self.root = etree.parse(schemafile)
 
   def findall(self, path):
     return self.root.findall(path.replace("xs:", SCHEMA_SPACE))
@@ -17,6 +17,17 @@ class Schema:
 
   def names_of(self, nodes):
     return [node.get("name") for node in nodes]
+  def print_Elements(self,nodes, path=''):
+    res = []
+    for node in nodes:
+      res.append({'name':node.attrib['name'],"group":1 if len(node.getchildren())>0 else 0,"path":})
+
+
+  def get_comElemetns(self,t_name="xs:complexType"):
+    return self.print_Element(self.findall(t_name))
+
+  def get_simElemetns(self, t_name="xs:simpleType"):
+    return self.print_Element(self.findall(t_name))
 
   def get_Types(self, t_name):
     return self.names_of(self.findall(t_name))
