@@ -23,6 +23,7 @@ class Schema:
       res.append({'name': node.attrib['name'], "group": 1 if len(node.getchildren()) > 0 else 0,
                   "path": '.'.join(path, node.attrib['name'])})
 
+
   def get_comElemetns(self, t_name="xs:complexType"):
     return self.print_Element(self.findall(t_name))
 
