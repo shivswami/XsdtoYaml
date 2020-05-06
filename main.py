@@ -6,8 +6,8 @@ from os import path, listdir
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                    description="Анализ xsd файла с закупок")
-  parser.add_argument('-i', metavar="input-dir", action='store', default="", help="Путь к каталогу с xsd")
-  parser.add_argument('-t', metavar="type", action='store', default="", help="Расширение выходного файла")
+  parser.add_argument('-i', metavar="input-dir", action='store', default="", help="Directory path with xsd")
+  parser.add_argument('-t', metavar="type", action='store', default="", help="Output file extension")
 
   args = parser.parse_args()
 
